@@ -22,8 +22,8 @@
 
 module mux(
     //Todo: define inputs here
-    reg a,
-    reg b,
+    input a,
+    input b,
     input sel,
     input clock.
     
@@ -39,11 +39,16 @@ module mux(
     //        b ? (sel==1'b1):
           //  default case
    //         2'b1;
-    always@ (posedge clock or negedge clock) 
-        if (~sel) 
-            #5 out <= a; 
-        else if (sel)
-            #5 out <= b;
-        end 
+   
+   assign #5 out = a ? (sel==1'b0):
+                b ? (sel==1'b1):
+            // default case
+                2'b1;
+   // always@ (posedge clock or negedge clock) 
+   //     if (~sel) 
+     //       #5 out <= a; 
+     //   else if (sel)
+      //      #5 out <= b;
+     //   end 
 
 endmodule
