@@ -33,4 +33,15 @@ module logicalunit(
          
       //Todo: add you logic here
 
+	if func == 4'b1110
+		assign output = a||b;
+	else if func ==4'b0110
+		assign output = a^b;
+	else if func == 4'b1000
+		assign output = a&&b;
+	else
+		pass
+
+
+
 endmodule
