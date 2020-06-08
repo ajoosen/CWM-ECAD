@@ -41,9 +41,10 @@ module logicalunit(
 	//	assign output = a&&b;
 	//else
 	//	pass
+	assign out = func[0] ? (a=1'b0 || b=1'b0)
+	assign out = func[1] ? (a=1'b0 || b=1'b1)	
+	assign out = func[2] ? (a=1'b1 || b=1'b0)
+	assign out = func[3] ? (a=1'b1 || b=1'b1)
 
-	assign out = a||b ? (func == 4'b1110)
-        assign out = a^b ? (func == 4'b0110)
-        assign out = a&&b ? (func == 4'b1000)
 
 endmodule
