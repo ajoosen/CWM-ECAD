@@ -34,7 +34,7 @@ module mux(
     wire   out;
 
     //Todo: define your logic here                 
-    always @(posedge clock)
+    @(posedge clock or negedge clock)
         assign #5 out = a ? (sel==1'b0):
             b ? (sel==1'b1):
           //  default case
