@@ -42,8 +42,8 @@ module logicalunit(
 	//else
 	//	pass
 
-	assign out = a||b ? func == 4'b1110
-        assign out = a^b ? func == 4'b0110
-        assign out = a&&b ? func == 4'b1000
+	out <= a||b ? (func == 4'b1110)
+        out <= a^b ? (func == 4'b0110)
+        out <= a&&b ? (func == 4'b1000)
 
 endmodule
