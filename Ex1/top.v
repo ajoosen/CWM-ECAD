@@ -25,6 +25,7 @@
 module logicalunit(
     input a,
     input b,
+//func as 4 bits 0, 1, 2, 3
     input [3:0] func,
     output out
     );
@@ -33,18 +34,13 @@ module logicalunit(
          
       //Todo: add you logic here
 
-	//if func == 4'b1110
-	//	assign output = a||b;
-	//else if func ==4'b0110
-	//	assign output = a^b;
-	//else if func == 4'b1000
-	//	assign output = a&&b;
-	//else
-	//	pass
-	assign out = func[0] ? (a=1'b0 || b=1'b0)
-	assign out = func[1] ? (a=1'b0 || b=1'b1)	
-	assign out = func[2] ? (a=1'b1 || b=1'b0)
-	assign out = func[3] ? (a=1'b1 || b=1'b1)
-
+	assign ab = {a,b};
+	
+	assign  out = func[0] ? (ab==2'b00):
+		func[1] ? (ab==2'b01):
+		func[2] ? (ab==2'b10):
+		func[3] ? (ab==2'b11):
+		//default case
+		2'b11;
 
 endmodule
