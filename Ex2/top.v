@@ -25,30 +25,19 @@ module mux(
     input a,
     input b,
     input sel,
-    input clock.
+    input clock,
     
     output out
     );
     
     //Todo: define registers and wires here
-    //wire   out;
+    wire   out;
 
     //Todo: define your logic here                 
-  //  @(posedge clock or negedge clock)
-   //     assign #5 out = a ? (sel==1'b0):
-    //        b ? (sel==1'b1):
-          //  default case
-   //         2'b1;
-   
-   assign #5 out = a ? (sel==1'b0):
-                b ? (sel==1'b1):
-            // default case
-                2'b1;
-   // always@ (posedge clock or negedge clock) 
-   //     if (~sel) 
-     //       #5 out <= a; 
-     //   else if (sel)
-      //      #5 out <= b;
-     //   end 
+    assign #5 out = sel ? b : a;
+
+    // if sel == 1 assign out = b 
+    // if sel == 0 assign out = a
+    // delay #5
 
 endmodule
