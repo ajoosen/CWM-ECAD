@@ -65,14 +65,14 @@ module top_tb(
 		//if direction ==1 and counter_out =/= counter_out_prev+1 or (equivalent statement for direction == -1), display 			error
 		if ((direction&&(counter_out!=counter_out_prev+1))|(!direction&&(counter_out!=counter_out_prev-1))) 
 		begin
-		  $display("***TEST FAILED! wrong direction");
+		  $display("***TEST FAILED!");
 		  err = 1; 
 		end
 
 		//If rst is 1, then the counter should reset to 0.
 		if (rst&&(counter_out!=0)) 
 		begin
-		  $display("***TEST FAILED! rst not does not reset properly");
+		  $display("***TEST FAILED!");
 		  err = 1;
 		end
 
