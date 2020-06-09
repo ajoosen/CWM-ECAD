@@ -25,7 +25,6 @@ module mux(
     input a,
     input b,
     input sel,
-    input clock,
     
     output out
     );
