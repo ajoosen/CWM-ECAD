@@ -35,10 +35,10 @@ module top_tb(
 //Todo: User logic
     	initial begin
 	//initialise variables
+	clk=0;
+	rst=1;
 	err=0;
 	direction=1;
-	rst=1;
-	clk=0;
 	enable=0;
 
 	// accommodate clock transition
