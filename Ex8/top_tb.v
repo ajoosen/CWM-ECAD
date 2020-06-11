@@ -55,22 +55,22 @@ module top_tb(
 			err=1;
 		end
 
-		if (a == 3'b010 & b == 3'b010)
+		if ((a==3'b010) & (b==3'b010))
 			enable = !enable;
-		if (a == 3'b011 & b == 3'b010)
+		if ((a==3'b011) & (b==3'b010))
 			enable = 1;
 		if (a<3'b111)
-			a = a+1;
+			a=a+1;
 		else
-			a = 0;
+			a=0;
 
 		result_prev=result;
 end
 end
 
 initial begin
-	#34 forever begin
-		#240
+	#(2*CLK_PERIOD) forever begin
+		#(20*CLK_PERIOD)
 		b=b+1;
 	end
 end
