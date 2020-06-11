@@ -15,7 +15,7 @@
 
 `timescale 1ns / 100ps
 
-module times_table (
+module multiplication_table (
 	input clk,
 	input [2:0] a,
 	input [2:0] b,
@@ -23,14 +23,6 @@ module times_table (
 	output wire [5:0] result
 	);
 
-
-	multiply_bram multiply_ip (
-	  .clka(clk),    	// input wire clka
-	  .ena(enable),     	// input wire ena
-	  .wea(0),      	// input wire [0 : 0] wea
-	  .addra({a,b}),  	// input wire [5 : 0] addra
-	  .dina(0),    		// input wire [5 : 0] dina
-	  .douta(result)  	// output wire [5 : 0] douta
-	);
+	multiply_bram multiply_ip (.clka(clk), .ena(enable), .wea(0), .addra({a,b}), .dina(0), .douta(result) );
 
 endmodule

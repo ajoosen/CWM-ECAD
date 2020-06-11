@@ -47,48 +47,38 @@ module top_tb(
 		
 		if ((enable == 1) & (result != a * b))
 		begin
-		
 		   $display("***TEST FAILED! Multiplication error");
 		   err=1;
 		end
 
-		if (a == 3'b010 & b == 3'b010)
-			enable = !enable;
-		if (a == 3'b011 & b == 3'b010)
-			enable = 1;
-
+		if ((a==3'b010) & (b==3'b010))
+			enable=!enable;
+		if ((a==3'b011) & (b == 3'b010))
+			enable=1;
 		if (a<3'b111)
-			a = a+1;
+			a=a+1;
 		else
-			a = 0;
-
-		result_previous_state = result;
-end
-end
+			a=0;
+		result_previous_state=result;
+	end
+	end
 
 	initial begin
 		#24 forever begin
-			#160 b = b+1;
+			#(10*CLK_PERIOD) b=b+1;
 		end
 	end
 
 
 //Todo: Finish test, check for success
       initial begin
-        #1950
-        if (err==0)
+        #(100*CLK_PERIOD) if (err==0)
           $display("***TEST PASSED! :) ***");
         $finish;
       end
 
 
 //User's module
-    times_table top (
-		.clk(clk),
-		.enable(enable),
-		.a(a),
-		.b(b),
-		.result(result)
-     		);
+    multiplication_table top (.clk(clk),	.enable(enable), .a(a),	.b(b), .result(result) );
      
 endmodule 
