@@ -6,7 +6,7 @@
 <Project Version="7" Minor="44" Path="/home/centos/CWM-ECAD/Ex8/Ex8.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="e142291569d547cf858ca1ead6c1c82f"/>
+    <Option Name="Id" Val="23b093becb004f70bfa9687699b85a4c"/>
     <Option Name="Part" Val="xcvu9p-fsgd2104-2L-e"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -80,7 +80,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/multiply_ip_coe.coe">
+      <File Path="$PPRDIR/multiply.coe">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
